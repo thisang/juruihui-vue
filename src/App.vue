@@ -1,17 +1,22 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <x-header title="ddd"></x-header>
     <router-view/>
   </div>
 </template>
 
 <script>
+import { XHeader } from 'vux'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    XHeader
+  }
 }
 </script>
 <style lang="less">
-@import '~vux/src/style/reset.less';
+  // @import '~vux/src/style/reset.less';
 </style>
 <style>
 #app {
