@@ -74,7 +74,12 @@ let webpackConfig = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      },
+      { test: /\.css$/, loader: 'style!css!px2rem?remUnit=75&remPrecision=8' }
     ]
   }
 }
