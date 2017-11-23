@@ -2,9 +2,8 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
-const vuxLoader = require('vux-loader')
-
 const vueLoaderConfig = require('./vue-loader.conf')
+const vuxLoader = require('vux-loader')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -74,16 +73,12 @@ let webpackConfig = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader'
-      },
-      { test: /\.css$/, loader: 'style!css!px2rem?remUnit=75&remPrecision=8' }
+      }
     ]
   }
 }
 
+
 module.exports = vuxLoader.merge(webpackConfig, {
-  plugins: ['vux-ui']
+  plugins: ['vux-ui', 'progress-bar', 'duplicate-style']
 })
