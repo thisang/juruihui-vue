@@ -5,6 +5,9 @@ import FastClick from 'fastclick'
 import router from './router'
 import App from './App'
 
+import 'lib-flexible'
+import '../node_modules/vux/src/styles/1px.less'
+
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false

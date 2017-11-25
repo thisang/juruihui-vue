@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <x-header title="聚瑞会"></x-header>
     <header>聚蕊烩</header>
     <router-view></router-view>
     <footer>
@@ -18,10 +19,13 @@ export default {
 <style lang="scss" scoped>
   .home{
     header{
+      height: 40px;
+      padding: 3px 0;
+      font-size: 18px;
       width: 100%;
       position: fixed;
       top: 0;
-      background-color: #58b256;
+      background-color: #eb8256;
     }
     footer{
       width: 100%;
