@@ -1,37 +1,82 @@
 <template>
   <div class="home">
-    <x-header title="聚瑞会"></x-header>
-    <header>聚蕊烩</header>
+    <top-head class="top-head">
+      <span class="left" slot="head-left">
+        <i class="city">武汉</i>
+        <i class="fs20 iconfont icon-position"></i>
+      </span>
+      <span class="right" slot="head-right">
+        <i class="fs20 iconfont icon-search"></i>
+      </span>
+    </top-head>
     <router-view></router-view>
-    <footer>
-      footer
-    </footer>
+    <tabbar class="footer">
+      <tabbar-item>
+        <i slot="icon" class="icon iconfont icon-home"></i>
+        <span class="footer-text" slot="label">首页</span>
+      </tabbar-item>
+      <tabbar-item>
+        <i slot="icon" class="icon iconfont icon-eye"></i>
+        <span class="footer-text" slot="label">发现</span>
+      </tabbar-item>
+      <tabbar-item>
+        <i slot="icon" class="icon iconfont icon-add"></i>
+        <span class="footer-text" slot="label">发布</span>
+      </tabbar-item>
+      <tabbar-item  badge="2">
+        <i slot="icon" class="icon iconfont icon-msg"></i>
+        <span class="footer-text" slot="label">消息</span>
+      </tabbar-item>
+      <tabbar-item show-dot>
+        <i slot="icon" class="icon iconfont icon-me"></i>
+        <span class="footer-text" slot="label">我的</span>
+      </tabbar-item>
+    </tabbar>
   </div>
 </template>
 <script>
-import { XHeader } from 'vux'
+import { Tabbar, TabbarItem } from 'vux'
+import TopHead from '../../components/topHead'
 export default {
   components: {
-    XHeader
+    TopHead,
+    Tabbar,
+    TabbarItem
   }
 }
 </script>
 <style lang="scss" scoped>
   .home{
-    header{
-      height: 40px;
-      padding: 3px 0;
-      font-size: 18px;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      background-color: #eb8256;
+    .top-head{
+      .city{
+        margin-right: -4px;
+      }
     }
-    footer{
-      width: 100%;
-      position: fixed;
-      bottom: 0;
-      border-top: 1px solid red;
+    .footer{
+      .footer-text{
+        // color: #eb8256;
+        font-size: 12px;
+      }
+      .icon{
+        font-size: 24px;
+        color: #eb8256;
+        position: relative;
+        top: -4px;
+      }
+    }
+  }
+</style>
+<style lang="scss">
+  .home{
+    .footer{
+      .weui-tabbar__label{
+        color: #eb8256;
+      }
+      .weui-bar__item_on{
+        .weui-tabbar__icon>i, .weui-tabbar__label{
+          color: #8B4324 !important;
+        }
+      }
     }
   }
 </style>

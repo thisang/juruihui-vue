@@ -7,6 +7,9 @@ import App from './App'
 
 import 'lib-flexible'
 import '../node_modules/vux/src/styles/1px.less'
+import '../node_modules/vux/src/styles/reset.less'
+import '../src/common/reset.scss'
+import '../src/common/common.scss'
 
 FastClick.attach(document.body)
 
