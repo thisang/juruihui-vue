@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <top-head class="top-head">
-      <span class="left" slot="head-left">
+      <span class="left" slot="head-left" @click="chooseCity">
         <i class="city">武汉</i>
         <i class="fs20 iconfont icon-position"></i>
       </span>
@@ -42,6 +42,13 @@ export default {
     TopHead,
     Tabbar,
     TabbarItem
+  },
+  methods: {
+    chooseCity () {
+      this.$router.push({
+        name: 'CityList'
+      })
+    }
   }
 }
 </script>
