@@ -9,3 +9,25 @@
 .fs24{
   font-size: 24px !important;
 }
+
+// 覆盖vux全局样式
+.vux-header{
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #eb8256 !important;
+  .vux-header-left{
+    a{
+      color: #fff !important;
+    }
+    .left-arrow:before{
+      border-color: #fff !important
+    }
+  }
+}
+
+// loading
+.weui-toast{
+  width: 40% !important;
+}
