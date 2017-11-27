@@ -12,9 +12,17 @@ import '../node_modules/vux/src/styles/reset.less'
 import '../src/common/reset.scss'
 import '../src/common/common.scss'
 
+import { ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, DatetimePlugin } from 'vux'
+
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
+
+Vue.use(ToastPlugin)
+Vue.use(ConfirmPlugin)
+Vue.use(AlertPlugin)
+Vue.use(LoadingPlugin)
+Vue.use(DatetimePlugin)
 
 /* eslint-disable no-new */
 new Vue({
