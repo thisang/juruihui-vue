@@ -1,1 +1,1 @@
-export const CURRENT_CITY = 'CURRENT_CENTY' // 当前城市
+export const CURRENT_CITY = 'CURRENT_CITY' // 当前城市

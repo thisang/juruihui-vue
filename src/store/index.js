@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import mutations from './mutations'
-import actions from './actions'
-import getters from './getters'
+import * as actions from './actions'
+import * as getters from './getters'
+import home from './modules/home'
 
 Vue.use(Vuex)
 
-const state = {
-  currentCity: '' // 当前城市
-}
-
 export default new Vuex.Store({
-  state,
   getters,
   actions,
-  mutations
+  modules: {
+    home
+  }
 })

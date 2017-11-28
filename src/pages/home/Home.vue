@@ -2,7 +2,7 @@
   <div class="home">
     <top-head class="top-head">
       <span class="left" slot="head-left" @click="chooseCity">
-        <i class="city">武汉</i>
+        <i class="city">{{nowCity}}</i>
         <i class="fs20 iconfont icon-position"></i>
       </span>
       <span class="right" slot="head-right">
@@ -35,6 +35,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import { Tabbar, TabbarItem } from 'vux'
 import TopHead from '../../components/topHead'
 export default {
@@ -42,6 +43,14 @@ export default {
     TopHead,
     Tabbar,
     TabbarItem
+  },
+  computed: {
+    ...mapGetters([
+      'currentCityStatus'
+    ]),
+    nowCity () {
+      return this.currentCityStatus
+    }
   },
   methods: {
     chooseCity () {

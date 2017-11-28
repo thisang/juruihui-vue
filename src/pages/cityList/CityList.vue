@@ -7,7 +7,9 @@
         <div class="citys" :class="{'vux-1px-b' : index !== cityData.length - 1}">
           <flexbox :gutter="0" wrap="wrap">
             <flexbox-item :span="1/4" v-for="(city, key) in item.list" :key="key">
-              <div class="city" @click="clickCity(city)">{{city}}</div>
+              <div class="city" @click="clickCity(city)">
+                <span :class="{'now-city' : nowCity === city}">{{city}}</span>
+              </div>
             </flexbox-item>
           </flexbox>
         </div>
@@ -16,7 +18,7 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { XHeader, Flexbox, FlexboxItem } from 'vux'
 export default {
   components: {
@@ -62,6 +64,14 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapGetters([
+      'currentCityStatus'
+    ]),
+    nowCity () {
+      return this.currentCityStatus
+    }
+  },
   methods: {
     ...mapMutations([
       'CURRENT_CITY'
@@ -73,6 +83,7 @@ export default {
       })
       setTimeout(() => {
         this.$vux.loading.hide()
+        this.CURRENT_CITY(city)
         this.$vux.toast.show({
           text: `当前城市:${city}`,
           type: 'success',
@@ -100,6 +111,12 @@ export default {
         text-align: center;
         background-clip: padding-box;
         margin: 5px 0;
+        .now-city{
+          background-color: #eb8256;
+          color: #fff;
+          border-radius: 4px;
+          padding: 1px 4px;
+        }
       }
     }
   }
