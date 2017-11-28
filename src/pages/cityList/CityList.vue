@@ -77,6 +77,9 @@ export default {
       'CURRENT_CITY'
     ]),
     clickCity (city) {
+      if (city === this.nowCity) {
+        return
+      }
       this.$vux.loading.show({
         text: '正在切换',
         width: '50%'
