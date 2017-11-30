@@ -4,6 +4,19 @@ html, body, #app {
   width: 100%;
   height: 100%;
 }
+.weui-btn:after{
+  border: none !important;
+}
+
+.jrh-primary-btn {
+  border-radius: 99px!important;
+  border: 1px solid #e86f3b!important;
+  color: #fff !important;
+  background-color: #eb8256 !important;
+  &:active {
+    background-color: rgba(206, 60, 57, 0.6)!important;
+  }
+}
 
 .fs14{
   font-size: 14px !important;
@@ -35,4 +48,9 @@ html, body, #app {
 // loading
 .weui-toast{
   width: 40% !important;
+}
+
+// button
+button.weui-btn{
+  font-size: 14px;
 }
