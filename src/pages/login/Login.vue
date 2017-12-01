@@ -10,15 +10,35 @@
           <input type="text" placeholder="请输入手机号码/邮箱">
           <input type="password" placeholder="请输入密码">
           <x-button type="primary" class="jrh-primary-btn">登陆</x-button>
+          <div class="center-text">
+            <span class="fs12">聚蕊烩协议</span>
+            <span class="fs12">忘记密码?</span>
+          </div>
+          <divider class="c9">使用第三方登陆</divider>
+          <div class="icon-box">
+            <div class="icon-item">
+              <i class="fs34 iconfont icon-weixin" style="color: #47db4e;"></i>
+              <span>腾讯微信</span>
+            </div>
+            <div class="icon-item">
+              <i class="fs34 iconfont icon-qq" style="color: #4cafe9;"></i>
+              <span>腾讯QQ</span>
+            </div>
+            <div class="icon-item">
+              <i class="fs34 iconfont icon-weibo" style="color: #ea5d5c;"></i>
+              <span class="fs12">新浪微博</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { XButton } from 'vux'
+import { XButton, Divider } from 'vux'
 export default {
   components: {
+    Divider,
     XButton
   }
 }
@@ -31,12 +51,12 @@ export default {
   }
   .login{
     @include full;
+      background: red linear-gradient(#ffe5e5, #fffcf1);
     .login-bg{
       @include full;
-      background: linear-gradient(#ffe5e5, #fffcf1);
+      background: url('../../../static/images/slogan.png') center 80% no-repeat / 260px;
       .login-box{
         width: 80%;
-        height: 300px;
         background-color: #fffcf1;
         border: 1px solid $orange;
         position: fixed;
@@ -71,6 +91,30 @@ export default {
             border-bottom: 1px solid $orange;
             padding: 5px;
             margin-bottom: 10px;
+          }
+        }
+        .center-text{
+          display: flex;
+          align-items: center;
+          text-align: center;
+          color: #999;
+          text-decoration: underline;
+          margin: 10px 0;
+          span{
+            flex: 1;
+          }
+        }
+        .icon-box{
+          display: flex;
+          justify-content: center;
+          .icon-item{
+            width: 60px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            i, span{
+              flex: 1;
+            }
           }
         }
       }
