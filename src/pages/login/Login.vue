@@ -3,13 +3,13 @@
     <div class="login-bg">
       <div class="login-box">
         <div class="tab">
-          <div class="tab-active">个人登陆</div>
-          <div>商家登陆</div>
+          <div :class="{'tab-active' : loginType === 'personal'}" @click="switchLoginType('personal')">个人登陆</div>
+          <div :class="{'tab-active' : loginType === 'merchant'}" @click="switchLoginType('merchant')">商家登陆</div>
         </div>
         <div class="input">
-          <input type="text" placeholder="请输入手机号码/邮箱">
-          <input type="password" placeholder="请输入密码">
-          <x-button type="primary" class="jrh-primary-btn">登陆</x-button>
+          <input type="text" placeholder="请输入手机号码/邮箱" v-model="loginInfo.username">
+          <input type="password" placeholder="请输入密码" v-model="loginInfo.password">
+          <x-button type="primary" class="jrh-primary-btn" @click.native="login">登陆</x-button>
           <div class="center-text">
             <span class="fs12">聚蕊烩协议</span>
             <span class="fs12">忘记密码?</span>
@@ -40,6 +40,46 @@ export default {
   components: {
     Divider,
     XButton
+  },
+  data () {
+    return {
+      loginInfo: {
+        username: '',
+        password: ''
+      },
+      loginType: 'personal'
+    }
+  },
+  methods: {
+    switchLoginType (type) {
+      if (type === this.loginType) {
+        return
+      }
+      this.loginType = type
+    },
+    login () {
+      let _username = this.loginInfo.username.trim()
+      let _password = this.loginInfo.password
+      if (_username === '' || _password === '') {
+        this.$vux.toast.show({
+          text: '请输入用户名和密码',
+          type: 'cancel',
+          width: '50%'
+        })
+      } else {
+        let _userInfo = this.loginInfo
+        _userInfo.userType = this.loginType
+        this.$vux.loading.show({
+          text: '正在登陆'
+        })
+        setTimeout(() => {
+          this.$vux.loading.hide()
+          this.$router.push({
+            name: 'Index'
+          })
+        })
+      }
+    }
   }
 }
 </script>
