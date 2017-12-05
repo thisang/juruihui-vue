@@ -9,8 +9,8 @@
         <i class="fs20 iconfont icon-search"></i>
       </span>
     </top-head>
-    <router-view></router-view>
-    <tabbar class="footer">
+    <router-view class="home-container"></router-view>
+    <tabbar class="footer vux-1px-t">
       <tabbar-item @click.native="toPage('home')" :selected="currentTab === 'Home'">
         <i slot="icon" class="icon iconfont icon-home"></i>
         <span class="footer-text" slot="label">首页</span>
@@ -95,6 +95,16 @@ export default {
 </script>
 <style lang="scss" scoped>
   .home{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    .home-container{
+      overflow: auto;
+      flex: 1;
+      height: 100%;
+      padding: 10px;
+    }
     .top-head{
       .city{
         margin-right: -4px;
@@ -116,6 +126,7 @@ export default {
 <style lang="scss">
   .home{
     .footer{
+      position: relative;
       .weui-tabbar__label{
         color: #eb8256;
       }

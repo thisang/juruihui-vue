@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <p>home</p>
+  <div class="find">
+    <p>find</p>
   </div>
 </template>
 <script>
@@ -14,6 +14,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .home{
+  .find{
   }
 </style>
