@@ -35,10 +35,6 @@ html, body, #app {
 
 // 覆盖vux全局样式
 .vux-header{
-  position: fixed !important;
-  top: 0;
-  width: 100%;
-  z-index: 1;
   background-color: #eb8256 !important;
   .vux-header-left{
     a{
@@ -49,8 +45,17 @@ html, body, #app {
     }
   }
 }
-
+.vux-header-back{
+  font-size: 14px !important;
+}
+.vux-header-title{
+  font-size: 14px !important;
+}
 // button
 button.weui-btn{
   font-size: 14px;
+}
+// cell
+.vux-label{
+  font-size: 14px !important;
 }

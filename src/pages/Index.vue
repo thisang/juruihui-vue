@@ -103,7 +103,6 @@ export default {
       overflow: auto;
       flex: 1;
       height: 100%;
-      padding: 10px;
     }
     .top-head{
       .city{

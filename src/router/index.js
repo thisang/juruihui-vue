@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Index from '@/pages/index'
 import Login from '@/pages/login/Login'
 import Home from '@/pages/home/Home'
@@ -7,7 +8,9 @@ import Find from '@/pages/find/Find'
 import Publish from '@/pages/publish/Publish'
 import Message from '@/pages/message/Message'
 import Mine from '@/pages/mine/Mine'
+
 import CityList from '@/pages/cityList/CityList'
+import MessageList from '@/pages/messageList/MessageList'
 
 Vue.use(Router)
 
@@ -55,6 +58,11 @@ export default new Router({
       path: '/cityList',
       name: 'CityList',
       component: CityList
+    },
+    {
+      path: '/messageList',
+      name: 'MessageList',
+      component: MessageList
     }
   ]
 })
