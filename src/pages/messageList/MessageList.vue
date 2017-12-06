@@ -1,19 +1,41 @@
 <template>
-  <div class="mine">
+  <div class="message-list">
     <x-header :title="messageListTitle"></x-header>
-    <div class="mine-container">
-      <p>消息列表</p>
+    <div class="message-list-container">
+      <message-card v-for="(item, index) in msgDataList" :key="index" :msgData="item"></message-card>
     </div>
   </div>
 </template>
 <script>
+import MessageCard from '../../components/messageCard'
 import { XHeader } from 'vux'
 export default {
   components: {
-    XHeader
+    XHeader,
+    MessageCard
   },
   data () {
     return {
+      msgDataList: [
+        {
+          time: '2016-08-08 13:37',
+          headTitle: '活动开始',
+          content: '您报名的"XXXXX"活动，将与明天14:30在"XXXXXXXXXXXXXXXXXXXX"举行。请安排好出行计划，提前30分钟进场。如有疑问，请及时与主办方联系。',
+          footTitle: '查看详情'
+        },
+        {
+          time: '2016-08-08 13:37',
+          headTitle: '活动开始',
+          content: '您报名的"XXXXX"活动，将与明天14:30在"XXXXXXXXXXXXXXXXXXXX"举行。请安排好出行计划，提前30分钟进场。如有疑问，请及时与主办方联系。',
+          footTitle: '查看详情'
+        },
+        {
+          time: '2016-08-08 13:37',
+          headTitle: '活动开始',
+          content: '您报名的"XXXXX"活动，将与明天14:30在"XXXXXXXXXXXXXXXXXXXX"举行。请安排好出行计划，提前30分钟进场。如有疑问，请及时与主办方联系。',
+          footTitle: '查看详情'
+        }
+      ],
       messageListTitle: null // x-header的title
     }
   },
@@ -43,15 +65,16 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .mine{
+  .message-list{
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     height: 100%;
-    .mine-container{
+    .message-list-container{
       overflow: auto;
       flex: 1;
       height: 100%;
+      padding: 10px;
     }
   }
 </style>
