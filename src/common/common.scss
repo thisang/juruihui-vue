@@ -1,5 +1,7 @@
 // 全局样式
 
+$orange: #eb8256;
+
 html, body, #app {
   width: 100%;
   height: 100%;
@@ -46,7 +48,7 @@ html, body, #app {
   }
 }
 .vux-header-back{
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 .vux-header-title{
   font-size: 14px !important;
@@ -58,4 +60,17 @@ button.weui-btn{
 // cell
 .vux-label{
   font-size: 14px !important;
+}
+// panel
+.weui-panel__hd{
+  font-size: 14px !important;
+  color: #333 !important;
+}
+.weui-panel__ft{
+  .weui-cell_link{
+    .weui-cell__bd{
+      font-size: 12px;
+      color: $orange;
+    }
+  }
 }
