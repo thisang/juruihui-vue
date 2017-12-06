@@ -99,9 +99,14 @@ export default {
 </script>
 <style lang="scss" scoped>
   .city-list{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
     .city-list-container{
-      margin-top: 46px;
-      padding:10px 0;
+      overflow: auto;
+      flex: 1;
+      height: 100%;
       .citys-item{
         .city-title{
           margin: 5px 0;
