@@ -1,13 +1,37 @@
 <template>
   <div class="home">
-    <div class="item ruike">蕊客</div>
-    <div class="item huodong">活动</div>
-    <div class="item juwan">聚玩</div>
-    <div class="item dingzhi">私人定制</div>
-    <div class="item zhongchou">活动众筹</div>
-    <div class="item shouquan">活动授权</div>
-    <div class="item fenxiang">活动分享</div>
-    <div class="item shequ">社区</div>
+    <div class="item ruike item1">
+      <img src="../../../static/images/ruike.png" alt="">
+      <span>蕊 客</span>
+    </div>
+    <div class="item huodong">
+      <img src="../../../static/images/huodong.png" alt="">
+      <span>活 动</span>
+    </div>
+    <div class="item juwan">
+      <img src="../../../static/images/juwan.png" alt="">
+      <span>聚 玩</span>
+    </div>
+    <div class="item dingzhi">
+      <img src="../../../static/images/sirendingzhi.png" alt="">
+      <span>私 人 定 制</span>
+    </div>
+    <div class="item zhongchou">
+      <img src="../../../static/images/huodongzhongchou.png" alt="">
+      <span>活 动 众 筹</span>
+    </div>
+    <div class="item shouquan">
+      <img src="../../../static/images/huodongshouquan.png" alt="">
+      <span>活 动 授 权</span>
+    </div>
+    <div class="item fenxiang">
+      <img src="../../../static/images/huodongfenxiang.png" alt="">
+      <span>活 动 分 享</span>
+    </div>
+    <div class="item shequ">
+      <img src="../../../static/images/shequ.png" alt="">
+      <span>社 区</span>
+    </div>
   </div>
 </template>
 <script>
@@ -28,6 +52,22 @@ export default {
     grid-template-rows: 20%;
     .item{
       margin: 2px;
+      text-align: center;
+      // position: relative;
+      img{
+        display: block;
+        margin: 10px auto 0;
+        width: 50px;
+      }
+      span{
+        color: #fff;
+        font-size: 14px;
+      }
+    }
+    .item1{
+      img{
+        margin: 55px auto 0;
+      }
     }
     .ruike{
       grid-row: 1/3;

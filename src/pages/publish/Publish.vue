@@ -44,10 +44,10 @@ export default {
       color: #fff;
     }
     .activiti{
-      background-color: #e44f61;
+      background-color: #E87986;
     }
     .play{
-      background-color: #7cb736;
+      background-color: #AFD782;
     }
   }
 </style>
