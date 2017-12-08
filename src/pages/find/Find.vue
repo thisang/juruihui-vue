@@ -16,7 +16,7 @@
       </grid-item>
     </grid>
     <div class="find-container">
-      <activiti-card></activiti-card>
+      <activiti-card v-for="(item, index) in activitiList" :key="index" :activiti="item"></activiti-card>
     </div>
   </div>
 </template>
@@ -32,6 +32,60 @@ export default {
   },
   data () {
     return {
+      activitiList: [
+        {
+          title: '第十七届中国北京动漫嘉年华IDO17',
+          time: '2016年08月23日 08:00',
+          locationArea: '朝阳区',
+          locationPosition: '天辰东路7号国家会议中心',
+          locationDistance: '1.1km',
+          avatarUrl: '',
+          likes: 3,
+          userLiked: false,
+          isApplay: true,
+          tags: ['动漫', '嘉年华'],
+          read: 4
+        },
+        {
+          title: '第十七届中国北京动漫嘉年华IDO17',
+          time: '2016年08月23日 08:00',
+          locationArea: '朝阳区',
+          locationPosition: '天辰东路7号国家会议中心',
+          locationDistance: '1.1km',
+          avatarUrl: '',
+          likes: 3,
+          userLiked: true,
+          isApplay: false,
+          tags: ['动漫'],
+          read: 4
+        },
+        {
+          title: '第十七届中国北京动漫嘉年华IDO17',
+          time: '2016年08月23日 08:00',
+          locationArea: '朝阳区',
+          locationPosition: '天辰东路7号国家会议中心',
+          locationDistance: '1.1km',
+          avatarUrl: '',
+          likes: 3,
+          userLiked: true,
+          isApplay: false,
+          tags: ['动漫'],
+          read: 4
+        },
+        {
+          title: '第十七届中国北京动漫嘉年华IDO17',
+          time: '2016年08月23日 08:00',
+          locationArea: '朝阳区',
+          locationPosition: '天辰东路7号国家会议中心',
+          locationDistance: '1.1km',
+          avatarUrl: '',
+          likes: 3,
+          userLiked: true,
+          isApplay: false,
+          tags: ['动漫'],
+          read: 4
+        }
+      ],
       results: [
         {
           title: 'hallo'
