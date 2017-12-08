@@ -3,9 +3,9 @@
     <div class="img-top">
       <img class="card-avatar" src="./images/ang.jpg" alt="">
       <div class="card-like">
-        <i class="iconfont icon-position" v-if="activiti.userLiked"></i>
-        <i class="iconfont icon-position" v-else></i>
-        <span>{{activiti.likes}}</span>
+        <i class="iconfont icon-liked" v-if="activiti.userLiked"></i>
+        <i class="iconfont icon-like" v-else></i>
+        <span class="like-num">{{activiti.likes}}</span>
       </div>
       <span class="card-tags">
         <span class="tag">
@@ -13,8 +13,9 @@
         </span>
         <span class="read">浏览 {{activiti.read}}</span>
       </span>
-      <span class="card-raply">
-        <i>{{activiti.isApplay ? '可报名' : '不可报名'}}</i>
+      <span class="card-appaly">
+        <i class="css-tag"></i>
+        <i class="appaly">{{activiti.isApplay ? '可报名' : '不可报名'}}</i>
       </span>
     </div>
     <div class="main-text">
@@ -70,7 +71,14 @@ export default {
         position: absolute;
         right: 10px;
         top: 0px;
-        color: #fff;
+        i{
+          color: #eb8256;
+        }
+        .like-num {
+          position: relative;
+          color: #fff;
+          top: -1px;
+        }
       }
       .card-tags{
         position: absolute;
@@ -84,13 +92,28 @@ export default {
           border-radius: 3px;
         }
       }
-      .card-raply{
-        background-color: #eb8256;
-        color: #fff;
+      .card-appaly{
         position: absolute;
-        padding-right: 5px;
         bottom: 5px;
         right: 0;
+        .css-tag{
+          position: absolute;
+          display: inline-block;
+          border-width: 10px;
+          border-style: solid;
+          border-left-color: transparent;
+          border-width: 10px;
+          color: #eb8256;
+          left: -12px;
+          border-width: 9px;
+        }
+        .appaly{
+          z-index: 2;
+          position: relative;
+          padding: 1px 3px 1px 0;
+          color: #fff;
+          background-color: #eb8256;
+        }
       }
     }
     .main-text{
