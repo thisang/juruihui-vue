@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <top-head class="top-head">
+    <top-head class="top-head" v-if="showHead">
       <span class="left" slot="head-left" @click="chooseCity">
         <i class="city">{{nowCity}}</i>
         <i class="fs20 iconfont icon-position"></i>
@@ -35,6 +35,8 @@
   </div>
 </template>
 <script>
+// import Vue from 'vue'
+import EventBus from '../bus/event-bus'
 import { mapGetters } from 'vuex'
 import { Tabbar, TabbarItem } from 'vux'
 import TopHead from '../components/topHead'
@@ -43,6 +45,11 @@ export default {
     TopHead,
     Tabbar,
     TabbarItem
+  },
+  data () {
+    return {
+      showHead: true
+    }
   },
   computed: {
     ...mapGetters([
@@ -90,6 +97,18 @@ export default {
         name: 'CityList'
       })
     }
+  },
+  mounted () {
+    if (this.$route.name === 'Mine') {
+      this.showHead = false
+    }
+    EventBus.$on('HEADER_STATUS', (status) => {
+      if (status === 'show') {
+        this.showHead = false
+      } else {
+        this.showHead = true
+      }
+    })
   }
 }
 </script>

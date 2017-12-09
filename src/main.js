@@ -6,6 +6,8 @@ import router from './router'
 import store from './store/'
 import App from './App'
 
+import EventBus from './bus/event-bus'
+
 import 'lib-flexible'
 import '../node_modules/vux/src/styles/1px.less'
 import '../node_modules/vux/src/styles/reset.less'
@@ -23,6 +25,17 @@ Vue.use(ConfirmPlugin)
 Vue.use(AlertPlugin)
 Vue.use(LoadingPlugin)
 Vue.use(DatetimePlugin)
+
+router.beforeEach((to, from, next) => {
+  // Main页面不显示头部
+  if (to.name === 'Mine') {
+    console.log('Main 不显示header')
+    EventBus.$emit('HEADER_STATUS', 'show')
+  } else {
+    EventBus.$emit('HEADER_STATUS', 'hide')
+  }
+  next()
+})
 
 /* eslint-disable no-new */
 new Vue({
