@@ -5,6 +5,7 @@ const state = {
 }
 
 const getters = {
+  loginInfoStatus: state => state.loginInfo
 }
 
 const actions = {

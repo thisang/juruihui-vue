@@ -3,8 +3,8 @@
     <div class="login-bg">
       <div class="login-box">
         <div class="tab">
-          <div :class="{'tab-active' : loginType === 'personal'}" @click="switchLoginType('personal')">个人登陆</div>
-          <div :class="{'tab-active' : loginType === 'merchant'}" @click="switchLoginType('merchant')">商家登陆</div>
+          <div :class="{'tab-active' : userType === 'personal'}" @click="switchUserType('personal')">个人登陆</div>
+          <div :class="{'tab-active' : userType === 'merchant'}" @click="switchUserType('merchant')">商家登陆</div>
         </div>
         <div class="input">
           <input type="text" placeholder="请输入手机号码/邮箱" v-model="loginInfo.username">
@@ -36,6 +36,7 @@
 </template>
 <script>
 import { XButton, Divider } from 'vux'
+import { mapMutations } from 'vuex'
 export default {
   components: {
     Divider,
@@ -47,15 +48,18 @@ export default {
         username: '',
         password: ''
       },
-      loginType: 'personal'
+      userType: 'personal'
     }
   },
   methods: {
-    switchLoginType (type) {
-      if (type === this.loginType) {
+    ...mapMutations([
+      'LOGIN_INFO'
+    ]),
+    switchUserType (type) {
+      if (type === this.userType) {
         return
       }
-      this.loginType = type
+      this.userType = type
     },
     login () {
       let _username = this.loginInfo.username.trim()
@@ -68,7 +72,8 @@ export default {
         })
       } else {
         let _userInfo = this.loginInfo
-        _userInfo.userType = this.loginType
+        _userInfo.userType = this.userType
+        this.LOGIN_INFO(_userInfo)
         this.$vux.loading.show({
           text: '正在登陆'
         })
@@ -77,7 +82,7 @@ export default {
           this.$router.push({
             name: 'Index'
           })
-        })
+        }, 1000)
       }
     }
   }
