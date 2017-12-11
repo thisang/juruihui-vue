@@ -11,6 +11,7 @@ import Mine from '@/pages/mine/Mine'
 
 import CityList from '@/pages/cityList/CityList'
 import MessageList from '@/pages/messageList/MessageList'
+import Setting from '@/pages/setting/Setting'
 
 Vue.use(Router)
 
@@ -60,9 +61,14 @@ export default new Router({
       component: CityList
     },
     {
-      path: '/messageList',
+      path: 'index/message/messageList',
       name: 'MessageList',
       component: MessageList
+    },
+    {
+      path: 'index/mine/setting',
+      name: 'Setting',
+      component: Setting
     }
   ]
 })

@@ -1,7 +1,7 @@
 <template>
   <div class="mine">
     <div class="mine-head">
-      <i class="mine-set iconfont icon-setting"></i>
+      <i class="mine-set iconfont icon-setting" @click="toSetting"></i>
       <div class="switch-user-type">
         <span class="left-type" @click="switchUserType('personal')" :class="{'current-type' : main.loginInfo.userType === 'personal'}">参与者</span><span class="right-type" @click="switchUserType('merchant')" :class="{'current-type' : main.loginInfo.userType === 'merchant'}">主办方</span>
       </div>
@@ -123,6 +123,11 @@ export default {
       let _loginInfo = JSON.parse(JSON.stringify(this.loginInfoStatus))
       _loginInfo.userType = type
       this.LOGIN_INFO(_loginInfo)
+    },
+    toSetting () {
+      this.$router.push({
+        name: 'Setting'
+      })
     }
   }
 }
