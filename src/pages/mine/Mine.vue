@@ -21,19 +21,19 @@
             <div class="my-item">
               <div class="my-item-inner">
                 <span>0</span>
-                <span>待付款</span>
+                <span class="mt5">待付款</span>
               </div>
             </div>
             <div class="my-item vux-1px-l vux-1px-r">
               <div class="my-item-inner">
                 <span>0</span>
-                <span>带参与</span>
+                <span class="mt5">待参与</span>
               </div>
             </div>
             <div class="my-item">
               <div class="my-item-inner">
                 <span>0</span>
-                <span>已完成</span>
+                <span class="mt5">已完成</span>
               </div>
             </div>
           </div>
@@ -50,9 +50,52 @@
           <i slot="icon" class="iconfont icon-footpoint orange mr5"></i>          
         </cell>
       </group>
+      <div class="ad">
+        <img src="../../../static/images/my_banner.png" alt="">
+      </div>
     </div>
     <div class="merchant" v-else>
-      <p>主办方</p>
+      <group>
+        <cell class="cell-item">
+          <div class="items">
+            <div class="my-item">
+              <div class="my-item-inner">
+                <i slot="icon" class="iconfont icon-huodong orange mr5"></i>
+                <span class="mt5">管理活动</span>
+              </div>
+            </div>
+            <div class="my-item vux-1px-l vux-1px-r">
+              <div class="my-item-inner">
+                <i slot="icon" class="iconfont icon-baomingguanli orange mr5"></i>
+                <span class="mt5">管理报名</span>
+              </div>
+            </div>
+            <div class="my-item">
+              <div class="my-item-inner">
+                <i slot="icon" class="iconfont icon-piao orange mr5"></i>
+                <span class="mt5">验票</span>
+              </div>
+            </div>
+          </div>
+        </cell>
+      </group>
+      <group>
+        <cell title="活动收入" is-link>
+          <i slot="icon" class="iconfont icon-qianbao orange mr5"></i>
+        </cell>
+        <cell title="短信账户" is-link>
+          <i slot="icon" class="iconfont icon-duanxin orange mr5"></i>
+        </cell>
+        <cell title="我的主页" is-link>
+          <i slot="icon" class="iconfont icon-home orange mr5"></i>          
+        </cell>
+        <cell title="我的粉丝" is-link>
+          <i slot="icon" class="iconfont icon-fens orange mr5"></i>          
+        </cell>
+        <cell title="我的指南" is-link>
+          <i slot="icon" class="iconfont icon-zhinan orange mr5"></i>          
+        </cell>
+      </group>
     </div>
   </div>
 </template>
@@ -144,23 +187,39 @@ export default {
         }
       }
     }
-    .personal{
-      .items{
-        display: flex;
-        .my-item{
-          padding: 5px;
-          flex: 1;
-          height: 50px;
-          color: #999;
+    .items{
+      display: flex;
+      .my-item{
+        padding: 5px;
+        flex: 1;
+        height: 40px;
+        color: #999;
+        .my-item-inner{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          span{
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+          }
         }
+      }
+    }
+    .ad{
+      margin-top: 10px;
+      img{
+        width: 100%;
       }
     }
   }
 </style>
 <style lang="scss">
   .mine{
-      // .weui-cell__ft{
-      //   width: 100%;
-      // }
+    .cell-item{
+      .weui-cell__ft{
+        width: 100% !important;
+      }
+    }
   }
 </style>
