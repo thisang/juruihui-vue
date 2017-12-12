@@ -12,6 +12,8 @@ import Mine from '@/pages/mine/Mine'
 import CityList from '@/pages/cityList/CityList'
 import MessageList from '@/pages/messageList/MessageList'
 import Setting from '@/pages/setting/Setting'
+import SetNotice from '@/pages/setNotice/SetNotice'
+import Feedback from '@/pages/feedback/Feedback'
 
 Vue.use(Router)
 
@@ -69,6 +71,16 @@ export default new Router({
       path: 'index/mine/setting',
       name: 'Setting',
       component: Setting
+    },
+    {
+      path: 'index/mine/setting/setNotice',
+      name: 'SetNotice',
+      component: SetNotice
+    },
+    {
+      path: 'index/mine/setting/feedback',
+      name: 'Feedback',
+      component: Feedback
     }
   ]
 })
