@@ -14,6 +14,7 @@ import MessageList from '@/pages/messageList/MessageList'
 import Setting from '@/pages/setting/Setting'
 import SetNotice from '@/pages/setNotice/SetNotice'
 import Feedback from '@/pages/feedback/Feedback'
+import Account from '@/pages/account/Account'
 
 Vue.use(Router)
 
@@ -63,24 +64,29 @@ export default new Router({
       component: CityList
     },
     {
-      path: 'index/message/messageList',
+      path: '/index/message/messageList',
       name: 'MessageList',
       component: MessageList
     },
     {
-      path: 'index/mine/setting',
+      path: '/index/mine/setting',
       name: 'Setting',
       component: Setting
     },
     {
-      path: 'index/mine/setting/setNotice',
+      path: '/index/mine/setting/setNotice',
       name: 'SetNotice',
       component: SetNotice
     },
     {
-      path: 'index/mine/setting/feedback',
+      path: '/index/mine/setting/feedback',
       name: 'Feedback',
       component: Feedback
+    },
+    {
+      path: '/index/mine/setting/account',
+      name: 'Account',
+      component: Account
     }
   ]
 })

@@ -1,9 +1,9 @@
 <template>
   <div class="setting">
-    <x-header title="设置" :left-options="{backText: '我的'}"></x-header>
+    <x-header title="设置" :leftOptions="{backText: '我的'}"></x-header>
     <div class="setting-container">
       <group>
-        <cell title="账号资料" is-link></cell>
+        <cell title="账号资料" is-link @click.native="toPage('Account')"></cell>
       </group>
       <group>
         <cell title="消息通知设置" is-link @click.native="toPage('SetNotice')"></cell>
@@ -15,7 +15,7 @@
         <cell title="邀请好友使用" is-link @click.native="showActionSheet = true"></cell>
       </group>
       <group>
-        <cell title="检查更新" is-link></cell>
+        <cell title="检查更新" is-link @click.native="update"></cell>
       </group>
       <group>
         <cell title="关于聚蕊烩" is-link value="v1.0.0" @click.native="alertMe"></cell>
@@ -54,6 +54,12 @@ export default {
     },
     onClickMenu (type) {
       console.log(type)
+    },
+    update () {
+      this.$vux.alert.show({
+        title: '提示',
+        content: '当前为最新版, 不需要升级, thx !'
+      })
     },
     alertMe () {
       this.$vux.alert.show({
