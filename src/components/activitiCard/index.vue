@@ -1,5 +1,5 @@
 <template>
-  <div class="activiti-card">
+  <div class="activiti-card" @click="view">
     <div class="img-top">
       <img class="card-avatar" src="./images/ang.jpg" alt="">
       <div class="card-like">
@@ -40,6 +40,14 @@ export default {
     activiti: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    view () {
+      this.$emit('on-view-acticiti')
+      this.$router.push({
+        name: 'ActivitiDetail'
+      })
     }
   }
 }
@@ -85,7 +93,7 @@ export default {
         bottom: 5px;
         left: 5px;
         color: #fff;
-        font-size: 12px;
+        font-size: 10px;
         .tag{
           background-color: #eb8256;
           padding: 1px 5px;

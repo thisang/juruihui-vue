@@ -1,34 +1,34 @@
 <template>
   <div class="home">
-    <div class="item ruike item1">
+    <div class="item ruike item1" @click="toPage('ActivitiList')">
       <img src="../../../static/images/ruike.png" alt="">
       <span>蕊 客</span>
     </div>
-    <div class="item huodong">
+    <div class="item huodong" @click="toPage('ActivitiList')">
       <img src="../../../static/images/huodong.png" alt="">
       <span>活 动</span>
     </div>
-    <div class="item juwan">
+    <div class="item juwan" @click="toPage('ActivitiList')">
       <img src="../../../static/images/juwan.png" alt="">
       <span>聚 玩</span>
     </div>
-    <div class="item dingzhi">
+    <div class="item dingzhi" @click="toPage('ActivitiList')">
       <img src="../../../static/images/sirendingzhi.png" alt="">
       <span>私 人 定 制</span>
     </div>
-    <div class="item zhongchou">
+    <div class="item zhongchou" @click="toPage('ActivitiList')">
       <img src="../../../static/images/huodongzhongchou.png" alt="">
       <span>活 动 众 筹</span>
     </div>
-    <div class="item shouquan">
+    <div class="item shouquan" @click="toPage('ActivitiList')">
       <img src="../../../static/images/huodongshouquan.png" alt="">
       <span>活 动 授 权</span>
     </div>
-    <div class="item fenxiang">
+    <div class="item fenxiang" @click="toPage('ActivitiList')">
       <img src="../../../static/images/huodongfenxiang.png" alt="">
       <span>活 动 分 享</span>
     </div>
-    <div class="item shequ">
+    <div class="item shequ" @click="toPage('Community')">
       <img src="../../../static/images/shequ.png" alt="">
       <span>社 区</span>
     </div>
@@ -41,6 +41,18 @@ export default {
   computed: {
   },
   methods: {
+    toPage (routeName) {
+      if (routeName === 'Community') {
+        this.$vux.alert.show({
+          title: '提示',
+          content: '即将上线..'
+        })
+      } else {
+        this.$router.push({
+          name: routeName
+        })
+      }
+    }
   }
 }
 </script>

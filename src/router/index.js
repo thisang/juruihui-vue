@@ -15,6 +15,8 @@ import Setting from '@/pages/setting/Setting'
 import SetNotice from '@/pages/setNotice/SetNotice'
 import Feedback from '@/pages/feedback/Feedback'
 import Account from '@/pages/account/Account'
+import ActivitiList from '@/pages/activitiList/ActivitiList'
+import ActivitiDetail from '@/pages/activitiDetail/ActivitiDetail'
 
 Vue.use(Router)
 
@@ -87,6 +89,16 @@ export default new Router({
       path: '/index/mine/setting/account',
       name: 'Account',
       component: Account
+    },
+    {
+      path: '/activitiList',
+      name: 'ActivitiList',
+      component: ActivitiList
+    },
+    {
+      path: '/activitiDetail',
+      name: 'ActivitiDetail',
+      component: ActivitiDetail
     }
   ]
 })
