@@ -107,10 +107,8 @@ export default {
         .css-tag{
           position: absolute;
           display: inline-block;
-          border-width: 10px;
           border-style: solid;
           border-left-color: transparent;
-          border-width: 10px;
           color: #eb8256;
           left: -12px;
           border-width: 9px;

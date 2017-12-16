@@ -44,6 +44,18 @@ html, body, #app {
 .mt5{
   margin-top: 5px;
 }
+.mt10{
+  margin-top: 10px;
+}
+.p10{
+  padding: 10px;
+}
+.eb8256{
+  color: $orange !important;
+}
+.fff{
+  color: #fff !important;
+}
 
 // 覆盖vux全局样式
 .vux-header{
