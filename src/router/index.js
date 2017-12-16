@@ -18,6 +18,7 @@ import Account from '@/pages/account/Account'
 import ActivitiList from '@/pages/activitiList/ActivitiList'
 import ActivitiDetail from '@/pages/activitiDetail/ActivitiDetail'
 import PublishActiviti from '@/pages/publishActiviti/PublishActiviti'
+import PersonalInformation from '@/pages/personalInformation/PersonalInformation'
 
 Vue.use(Router)
 
@@ -105,6 +106,11 @@ export default new Router({
       path: '/publishActiviti',
       name: 'PublishActiviti',
       component: PublishActiviti
+    },
+    {
+      path: '/personalInformation',
+      name: 'PersonalInformation',
+      component: PersonalInformation
     }
   ]
 })
