@@ -19,6 +19,7 @@ import ActivitiList from '@/pages/activitiList/ActivitiList'
 import ActivitiDetail from '@/pages/activitiDetail/ActivitiDetail'
 import PublishActiviti from '@/pages/publishActiviti/PublishActiviti'
 import PersonalInformation from '@/pages/personalInformation/PersonalInformation'
+import MyFootPoint from '@/pages/myFootPoint/MyFootPoint'
 
 Vue.use(Router)
 
@@ -111,6 +112,11 @@ export default new Router({
       path: '/personalInformation',
       name: 'PersonalInformation',
       component: PersonalInformation
+    },
+    {
+      path: '/myFootPoint',
+      name: 'MyFootPoint',
+      component: MyFootPoint
     }
   ]
 })

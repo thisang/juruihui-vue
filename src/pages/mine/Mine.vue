@@ -46,7 +46,7 @@
         <cell title="关注的主办方" is-link>
           <i slot="icon" class="iconfont icon-collect orange mr5"></i>
         </cell>
-        <cell title="我的足迹" is-link>
+        <cell title="我的足迹" is-link @click.native="toPage('MyFootPoint')">
           <i slot="icon" class="iconfont icon-footpoint orange mr5"></i>          
         </cell>
       </group>
