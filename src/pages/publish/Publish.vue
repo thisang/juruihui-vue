@@ -1,10 +1,10 @@
 <template>
   <div class="publish">
-    <div class="publish-item activiti">
+    <div class="publish-item activiti" @click="toPublish('activiti')">
       <img src="../../../static/images/huodong.png" alt="">
       <span class="publish-title">活&nbsp;&nbsp;&nbsp;&nbsp;动</span>
     </div>
-    <div class="publish-item play">
+    <div class="publish-item play" @click="toPublish('play')">
       <img src="../../../static/images/juwan.png" alt="">
       <span class="publish-title">聚&nbsp;&nbsp;&nbsp;&nbsp;玩</span>
     </div>
@@ -17,6 +17,14 @@ export default {
   computed: {
   },
   methods: {
+    toPublish (type) {
+      this.$router.push({
+        name: 'PublishActiviti',
+        query: {
+          type: type
+        }
+      })
+    }
   }
 }
 </script>
