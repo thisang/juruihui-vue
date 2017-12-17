@@ -20,6 +20,7 @@ import ActivitiDetail from '@/pages/activitiDetail/ActivitiDetail'
 import PublishActiviti from '@/pages/publishActiviti/PublishActiviti'
 import PersonalInformation from '@/pages/personalInformation/PersonalInformation'
 import MyFootPoint from '@/pages/myFootPoint/MyFootPoint'
+import AllVoucher from '@/pages/allVoucher/AllVoucher'
 
 Vue.use(Router)
 
@@ -117,6 +118,11 @@ export default new Router({
       path: '/myFootPoint',
       name: 'MyFootPoint',
       component: MyFootPoint
+    },
+    {
+      path: '/allVoucher',
+      name: 'AllVoucher',
+      component: AllVoucher
     }
   ]
 })

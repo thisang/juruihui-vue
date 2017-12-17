@@ -15,7 +15,7 @@
     </div>
     <div class="personal" v-if="main.loginInfo.userType === 'personal'">
       <group>
-        <cell title="我的活动" is-link value="查看全部电子凭证"></cell>
+        <cell title="我的活动" is-link value="查看全部电子凭证" @click.native="toPage('AllVoucher')"></cell>
         <cell class="cell-item">
           <div class="items">
             <div class="my-item">

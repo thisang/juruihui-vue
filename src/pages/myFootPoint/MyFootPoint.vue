@@ -8,23 +8,23 @@
           <p>2016年8月21日</p>
         </timeline-item>
         <timeline-item>
-            <h4>欢迎加入武汉影视圈</h4>
-            <p>2016年8月22日</p>
+          <h4>欢迎加入武汉影视圈</h4>
+          <p>2016年8月22日</p>
         </timeline-item>
         <timeline-item>
-            <h4>嘴张大点, 软媒给你喂酒</h4>
-            <p>2016年8月23日</p>
+          <h4>嘴张大点, 软妹给你喂酒</h4>
+          <p>2016年8月23日</p>
         </timeline-item>
         <timeline-item>
-            <h4 class="recent">关于创业武汉 · 第六期青创营学院招募</h4>
-            <p class="recent">2016年8月24日</p>
+          <h4 class="recent">关于创业武汉 · 第六期青创营学院招募</h4>
+          <p class="recent">2016年8月24日</p>
         </timeline-item>
     </timeline>
     </div>
   </div>
 </template>
 <script>
-import {  XHeader, Timeline, TimelineItem } from 'vux'
+import { XHeader, Timeline, TimelineItem } from 'vux'
 export default {
   components: {
     XHeader,
