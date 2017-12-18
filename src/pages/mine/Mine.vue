@@ -18,7 +18,7 @@
         <cell title="我的活动" is-link value="查看全部电子凭证" @click.native="toPage('AllVoucher')"></cell>
         <cell class="cell-item">
           <div class="items">
-            <div class="my-item">
+            <div class="my-item" @click="toPage('ToPay')">
               <div class="my-item-inner">
                 <span>0</span>
                 <span class="mt5">待付款</span>

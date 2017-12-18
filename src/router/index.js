@@ -21,6 +21,7 @@ import PublishActiviti from '@/pages/publishActiviti/PublishActiviti'
 import PersonalInformation from '@/pages/personalInformation/PersonalInformation'
 import MyFootPoint from '@/pages/myFootPoint/MyFootPoint'
 import AllVoucher from '@/pages/allVoucher/AllVoucher'
+import ToPay from '@/pages/toPay/ToPay'
 
 Vue.use(Router)
 
@@ -123,6 +124,11 @@ export default new Router({
       path: '/allVoucher',
       name: 'AllVoucher',
       component: AllVoucher
+    },
+    {
+      path: '/toPay',
+      name: 'ToPay',
+      component: ToPay
     }
   ]
 })
