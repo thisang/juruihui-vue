@@ -1,6 +1,6 @@
 <template>
   <div class="all-voucher">
-    <x-header title="全部凭证"></x-header>
+    <x-header title="待参与"></x-header>
     <div class="all-voucher-container">
       <activiti-cell v-for="(item, index) in activitiCellList" :key="index" :activitiCellItem="item"></activiti-cell>
     </div>
@@ -29,36 +29,24 @@ export default {
           title: '2016年09月01日 12:30 报名了该活动',
           content: '网络营销策划,网络营销策划,网络营销策划,网络营销策划,网络营销策划',
           price: '999',
-          activitiEnded: {
-            text: '活动已结束',
-            joined: true
+          activitiReady: {
+            text: '活动尚未开始'
           }
         },
         {
           title: '2016年09月01日 12:30 报名了该活动',
           content: '网络营销策划,网络营销策划,网络营销策划,网络营销策划,网络营销策划',
           price: '999',
-          activitiEnded: {
-            text: '活动已结束',
-            joined: false
+          activitiReady: {
+            text: '活动尚未开始'
           }
         },
         {
           title: '2016年09月01日 12:30 报名了该活动',
           content: '网络营销策划,网络营销策划,网络营销策划,网络营销策划,网络营销策划',
           price: '999',
-          activitiEnded: {
-            text: '活动已结束',
-            joined: true
-          }
-        },
-        {
-          title: '2016年09月01日 12:30 报名了该活动',
-          content: '网络营销策划,网络营销策划,网络营销策划,网络营销策划,网络营销策划',
-          price: '999',
-          activitiEnded: {
-            text: '活动已结束',
-            joined: true
+          activitiReady: {
+            text: '活动尚未开始'
           }
         }
       ]

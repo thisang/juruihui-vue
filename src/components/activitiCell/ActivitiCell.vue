@@ -10,8 +10,14 @@
         </div>
       </div>
       <div class="activiti-cell-footer vux-1px-t">
-        <span class="activiti-ended">活动已结束</span>
-        <span class="joined">已参与活动</span>
+        <p v-if="activitiCellItem.activitiEnded">
+          <span class="activiti-ended">活动已结束</span>
+          <span class="joined">{{activitiCellItem.activitiEnded.joined ? '已参与活动' : '未参与活动'}}</span>
+        </p>
+        <p v-else>
+          <span class="activiti-ended">活动尚未开始</span>
+          <a class="btn" href="javascript:void(0)">确认参加</a>
+        </p>
       </div>
     </div>
   </div>
@@ -72,11 +78,20 @@ export default {
         }
       }
       .activiti-cell-footer{
-        display: flex;
         font-size: 10px;
         color: #999;
         padding: 5px 10px;
-        justify-content: space-between;
+        p{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .btn{
+            padding: 2px 5px;
+            background-color: #eb8256;
+            border-radius: 3px;
+            color: #fff;
+          }
+        }
       }
     }
 

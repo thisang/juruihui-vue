@@ -24,13 +24,13 @@
                 <span class="mt5">待付款</span>
               </div>
             </div>
-            <div class="my-item vux-1px-l vux-1px-r">
+            <div class="my-item vux-1px-l vux-1px-r" @click="toPage('WaitForJoin')">
               <div class="my-item-inner">
                 <span>0</span>
                 <span class="mt5">待参与</span>
               </div>
             </div>
-            <div class="my-item">
+            <div class="my-item" @click="toPage('Joined')">
               <div class="my-item-inner">
                 <span>0</span>
                 <span class="mt5">已完成</span>
@@ -40,7 +40,7 @@
         </cell>
       </group>
       <group>
-        <cell title="收藏的活动" is-link>
+        <cell title="收藏的活动" is-link @click.native="toPage('Like')">
           <i slot="icon" class="iconfont icon-liked orange mr5"></i>
         </cell>
         <cell title="关注的主办方" is-link>

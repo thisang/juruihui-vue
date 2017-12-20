@@ -21,6 +21,9 @@ import PublishActiviti from '@/pages/publishActiviti/PublishActiviti'
 import PersonalInformation from '@/pages/personalInformation/PersonalInformation'
 import MyFootPoint from '@/pages/myFootPoint/MyFootPoint'
 import AllVoucher from '@/pages/allVoucher/AllVoucher'
+import WaitForJoin from '@/pages/waitForJoin/WaitForJoin'
+import Joined from '@/pages/joined/Joined'
+import Like from '@/pages/like/Like'
 import ToPay from '@/pages/toPay/ToPay'
 
 Vue.use(Router)
@@ -124,6 +127,21 @@ export default new Router({
       path: '/allVoucher',
       name: 'AllVoucher',
       component: AllVoucher
+    },
+    {
+      path: '/waitForJoin',
+      name: 'WaitForJoin',
+      component: WaitForJoin
+    },
+    {
+      path: '/joined',
+      name: 'Joined',
+      component: Joined
+    },
+    {
+      path: '/like',
+      name: 'Like',
+      component: Like
     },
     {
       path: '/toPay',
