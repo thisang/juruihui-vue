@@ -6,7 +6,7 @@
         <span class="left-type" @click="switchUserType('personal')" :class="{'current-type' : main.loginInfo.userType === 'personal'}">参与者</span><span class="right-type" @click="switchUserType('merchant')" :class="{'current-type' : main.loginInfo.userType === 'merchant'}">主办方</span>
       </div>
       <div class="mine-avatar">
-        <img class="avatar" src="../../../static/images/ang.jpg" @click="toPage('PersonalInformation')">
+        <img class="avatar" src="static/images/ang.jpg" @click="toPage('PersonalInformation')">
         <span class="username">{{main.loginInfo.username}}</span>
         <div class="login-type">
           <span>QQ登陆</span>
@@ -51,7 +51,7 @@
         </cell>
       </group>
       <div class="ad">
-        <img src="../../../static/images/my_banner.png" alt="">
+        <img src="static/images/my_banner.png" alt="">
       </div>
     </div>
     <div class="merchant" v-else>

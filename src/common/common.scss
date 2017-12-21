@@ -131,3 +131,10 @@ button.weui-btn{
   font-size: 12px !important;
   line-height: 2 !important;
 }
+.weui-search-bar__label{
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  bottom: unset !important;
+  right: unset !important;
+}

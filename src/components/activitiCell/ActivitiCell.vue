@@ -3,7 +3,7 @@
     <p class="cell-title" v-if="activitiCellItem.title">{{activitiCellItem.title}}</p>
     <div class="activiti-body vux-1px-t vux-1px-b">
       <div class="activiti-cell-content">
-        <img src="../../../static/images/cbd.jpg" alt="">
+        <img src="static/images/cbd.jpg" alt="">
         <div class="content-right">
           <p class="activiti-info">{{activitiCellItem.content}}</p>
           <p class="activiti-price">￥{{activitiCellItem.price}}</p>
