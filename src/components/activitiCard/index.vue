@@ -1,6 +1,7 @@
 <template>
   <div class="activiti-card" @click="view">
     <div class="img-top">
+      <img class="card-bg" src="static/images/cbd.jpg" alt="">
       <img class="card-avatar" src="static/images/ang.jpg" alt="">
       <div class="card-like">
         <i class="iconfont icon-liked" v-if="activiti.userLiked"></i>
@@ -59,13 +60,20 @@ export default {
     box-shadow: 0px 1px 3px -1px rgba(0,0,0,.3);
     position: relative;
     margin-bottom: 10px;
+    overflow: hidden;
     .img-top{
       width: 100%;
       height: 110px;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      background: url(./../../../static/images/cbd.jpg) center no-repeat / 100%;
       position: relative;
+      overflow: hidden;
+      .card-bg{
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
       .card-avatar{
         width: 30px;
         height: 30px;
