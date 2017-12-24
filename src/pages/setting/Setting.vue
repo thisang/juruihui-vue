@@ -21,7 +21,7 @@
         <cell title="关于聚蕊烩" is-link value="v1.0.0" @click.native="alertMe"></cell>
       </group>
       <group>
-        <cell class="exit">
+        <cell class="exit" @click.native="loginOut">
           <p class="login-out">退出登陆</p>
         </cell>
       </group>
@@ -30,6 +30,7 @@
   </div>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 import { XHeader, Group, Cell, Actionsheet } from 'vux'
 export default {
   components: {
@@ -47,6 +48,9 @@ export default {
   computed: {
   },
   methods: {
+    ...mapMutations([
+      'IS_LOGIN'
+    ]),
     toPage (routeName) {
       this.$router.push({
         name: routeName
@@ -66,6 +70,18 @@ export default {
         title: 'Hi',
         content: 'This is ang !'
       })
+    },
+    loginOut () {
+      this.$vux.loading.show({
+        text: '正在退出'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+        this.IS_LOGIN(false)
+        this.$router.push({
+          name: 'Login'
+        })
+      }, 1000)
     }
   }
 }

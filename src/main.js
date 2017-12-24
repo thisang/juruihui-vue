@@ -27,6 +27,22 @@ Vue.use(LoadingPlugin)
 Vue.use(DatetimePlugin)
 
 router.beforeEach((to, from, next) => {
+  let _loginStatus = store.getters.isLoginStatus
+  console.log('当前登陆状态为: ' + _loginStatus)
+
+  // 页面跳转前检测是否登陆
+  if (to.name === 'Login') {
+    if (_loginStatus) {
+      next({name: 'Home'})
+    } else {
+      next()
+    }
+  } else if (_loginStatus) {
+    next()
+  } else {
+    next({name: 'Login'})
+  }
+
   // Main页面不显示头部
   if (to.name === 'Mine') {
     console.log('Main 不显示header')

@@ -53,7 +53,8 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'LOGIN_INFO'
+      'LOGIN_INFO',
+      'IS_LOGIN'
     ]),
     switchUserType (type) {
       if (type === this.userType) {
@@ -73,11 +74,12 @@ export default {
       } else {
         let _userInfo = this.loginInfo
         _userInfo.userType = this.userType
-        this.LOGIN_INFO(_userInfo)
         this.$vux.loading.show({
           text: '正在登陆'
         })
         setTimeout(() => {
+          this.LOGIN_INFO(_userInfo)
+          this.IS_LOGIN(true)
           this.$vux.loading.hide()
           this.$router.push({
             name: 'Index'
