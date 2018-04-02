@@ -6,6 +6,8 @@ import router from './router'
 import store from './store/'
 import App from './App'
 
+import Http from './plugin/http'
+
 import EventBus from './bus/event-bus'
 
 import 'lib-flexible'
@@ -25,6 +27,8 @@ Vue.use(ConfirmPlugin)
 Vue.use(AlertPlugin)
 Vue.use(LoadingPlugin)
 Vue.use(DatetimePlugin)
+
+Vue.use(Http)
 
 router.beforeEach((to, from, next) => {
   let _loginStatus = store.getters.isLoginStatus
