@@ -71,21 +71,43 @@ export default {
           type: 'cancel',
           width: '50%'
         })
-      } else {
-        let _userInfo = this.loginInfo
-        _userInfo.userType = this.userType
-        this.$vux.loading.show({
-          text: '正在登陆'
-        })
-        setTimeout(() => {
-          this.LOGIN_INFO(_userInfo)
-          this.IS_LOGIN(true)
+        return
+      }
+      this.$vux.loading.show({
+        text: '正在登陆'
+      })
+      this.http({
+        url: '/api/juruihui/login',
+        method: 'POST',
+        data: {
+          username: this.loginInfo.username,
+          password: this.loginInfo.password
+        },
+        error: err => {
+          console.log(err)
           this.$vux.loading.hide()
+          this.$vux.toast.show({
+            type: 'cancel',
+            text: '登录失败'
+          })
+        },
+        success: res => {
+          console.log(res)
+          this.$vux.loading.hide()
+          if (res.err) {
+            this.$vux.toast.show({
+              type: 'cancel',
+              text: res.err
+            })
+            return
+          }
+          this.LOGIN_INFO(this.userInfo)
+          this.IS_LOGIN(true)
           this.$router.push({
             name: 'Index'
           })
-        }, 1000)
-      }
+        }
+      })
     }
   }
 }
