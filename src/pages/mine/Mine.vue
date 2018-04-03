@@ -3,17 +3,18 @@
     <div class="mine-head">
       <i class="mine-set iconfont icon-setting" @click="toSetting"></i>
       <div class="switch-user-type">
-        <span class="left-type" @click="switchUserType('personal')" :class="{'current-type' : main.loginInfo.userType === 'personal'}">参与者</span><span class="right-type" @click="switchUserType('merchant')" :class="{'current-type' : main.loginInfo.userType === 'merchant'}">主办方</span>
+        <span class="left-type" @click="switchUserType('personal')" :class="{'current-type' : main.loginInfo.role === 'personal'}">参与者</span>
+        <span class="right-type" @click="switchUserType('merchant')" :class="{'current-type' : main.loginInfo.role === 'merchant'}">主办方</span>
       </div>
       <div class="mine-avatar">
         <img class="avatar" src="static/images/ang.jpg" @click="toPage('PersonalInformation')">
         <span class="username">{{main.loginInfo.username}}</span>
         <div class="login-type">
-          <span>QQ登陆</span>
+          <span>{{loginerType}}</span>
         </div>
       </div>
     </div>
-    <div class="personal" v-if="main.loginInfo.userType === 'personal'">
+    <div class="personal" v-if="main.loginInfo.usertype === 'personal'">
       <group>
         <cell title="我的活动" is-link value="查看全部电子凭证" @click.native="toPage('AllVoucher')"></cell>
         <cell class="cell-item">
@@ -113,7 +114,19 @@ export default {
     ]),
     ...mapGetters([
       'loginInfoStatus'
-    ])
+    ]),
+    loginerType () {
+      switch (this.loginInfoStatus.usertype) {
+        case 'plantform':
+          return '聚蕊烩平台'
+        case 'weixin':
+          return '微信登录'
+        case 'qq':
+          return 'QQ登录'
+        case 'weibo':
+          return '微博登录'
+      }
+    }
   },
   methods: {
     ...mapMutations([
@@ -126,7 +139,7 @@ export default {
     },
     switchUserType (type) {
       let _loginInfo = JSON.parse(JSON.stringify(this.loginInfoStatus))
-      _loginInfo.userType = type
+      _loginInfo.usertype = type
       this.LOGIN_INFO(_loginInfo)
     },
     toSetting () {
@@ -162,7 +175,7 @@ export default {
             padding: 0px 5px;
             border: 1px solid #fff;
             border-radius: 3px;
-            font-size: 12px;
+            font-size: 10px;
           }
         }
         .avatar{
@@ -177,6 +190,7 @@ export default {
       .switch-user-type{
         text-align: center;
         padding-top: 10px;
+        font-size: 0; 
         .left-type{
           border-top-left-radius: 5px;
           border-bottom-left-radius: 5px;

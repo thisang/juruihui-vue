@@ -101,7 +101,8 @@ export default {
             })
             return
           }
-          this.LOGIN_INFO(this.userInfo)
+          console.log('登录成功');
+          this.LOGIN_INFO(res)
           this.IS_LOGIN(true)
           this.$router.push({
             name: 'Index'
