@@ -30,7 +30,7 @@
   </div>
 </template>
 <script>
-import {mapMutations} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 import { XHeader, Group, Cell, Actionsheet } from 'vux'
 export default {
   components: {
@@ -46,6 +46,9 @@ export default {
     }
   },
   computed: {
+    ...mapState([
+      'main'
+    ])
   },
   methods: {
     ...mapMutations([
@@ -75,13 +78,25 @@ export default {
       this.$vux.loading.show({
         text: '正在退出'
       })
-      setTimeout(() => {
-        this.$vux.loading.hide()
-        this.IS_LOGIN(false)
-        this.$router.push({
-          name: 'Login'
-        })
-      }, 1000)
+      this.http({
+        url: '/api/juruihui/logout',
+        method: 'POST',
+        data: {
+          uid: this.main.loginInfo.uid
+        },
+        error: err => {
+          console.log('err', err)
+          this.$vux.loading.hide()
+        },
+        success: res => {
+          console.log('res', res)
+          this.$vux.loading.hide()
+          this.IS_LOGIN(false)
+          this.$router.push({
+            name: 'Login'
+          })
+        }
+      })
     }
   }
 }

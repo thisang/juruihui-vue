@@ -101,7 +101,6 @@ export default {
             })
             return
           }
-          console.log('登录成功');
           this.LOGIN_INFO(res)
           this.IS_LOGIN(true)
           this.$router.push({
