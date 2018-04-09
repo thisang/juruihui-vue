@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 import { XHeader, Flexbox, FlexboxItem } from 'vux'
 export default {
   components: {
@@ -65,16 +65,22 @@ export default {
     }
   },
   computed: {
+    ...mapState([
+      'home'
+    ]),
     ...mapGetters([
       'currentCityStatus'
     ]),
     nowCity () {
-      return this.currentCityStatus
+      if (this.home.currentCity) {
+        return this.home.currentCity.city
+      }
+      return '正在定位'
     }
   },
   methods: {
-    ...mapMutations([
-      'CURRENT_CITY'
+    ...mapActions([
+      'setCurrentCity'
     ]),
     clickCity (city) {
       if (city === this.nowCity) {
@@ -86,13 +92,23 @@ export default {
       })
       setTimeout(() => {
         this.$vux.loading.hide()
-        this.CURRENT_CITY(city)
+        this.setCurrentCity({
+          city: city
+        })
         this.$vux.toast.show({
           text: `当前城市:${city}`,
           type: 'success',
           width: '50%'
         })
       }, 500)
+    }
+  },
+  created () {
+    this.cityData[0].list = [this.nowCity]
+  },
+  watch: {
+    nowCity (newVal, oldVal) {
+      this.cityData[0].list = [newVal]
     }
   }
 }

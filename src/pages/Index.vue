@@ -37,7 +37,7 @@
 <script>
 // import Vue from 'vue'
 import EventBus from '../bus/event-bus'
-import { mapGetters } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { Tabbar, TabbarItem } from 'vux'
 import TopHead from '../components/topHead'
 export default {
@@ -52,17 +52,23 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'currentCityStatus'
+    ...mapState([
+      'home'
     ]),
     nowCity () {
-      return this.currentCityStatus
+      if (this.home.currentCity) {
+        return this.home.currentCity.city
+      }
+      return '正在定位'
     },
     currentTab () {
       return this.$route.name
     }
   },
   methods: {
+    ...mapActions([
+      'getCurrentCity'
+    ]),
     toPage (type) {
       switch (type) {
         case 'home':
@@ -96,6 +102,12 @@ export default {
       this.$router.push({
         name: 'CityList'
       })
+    }
+  },
+  created () {
+    // 获取定位城市信息
+    if (!this.home.currentCity) {
+      this.getCurrentCity()
     }
   },
   mounted () {
