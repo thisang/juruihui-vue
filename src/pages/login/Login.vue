@@ -11,8 +11,8 @@
           <input type="password" placeholder="请输入密码" v-model="loginInfo.password">
           <x-button type="primary" class="jrh-primary-btn" @click.native="login">登陆</x-button>
           <div class="center-text">
-            <span class="fs12">聚蕊烩协议</span>
             <span class="fs12">忘记密码?</span>
+            <span class="fs12" @click="showSignin = true">没有账号?去注册</span>
           </div>
           <divider class="c9">使用第三方登陆</divider>
           <div class="icon-box">
@@ -32,18 +32,57 @@
         </div>
       </div>
     </div>
+    <popup v-model="showSignin" position="right" width="100%" >
+      <x-header :left-options="{backText: '', preventGoBack: true	}" title="用户注册" @on-click-back="showSignin = false"></x-header>
+      <div class="sign-body">
+        <group>
+          <x-input title="用户名" v-model.trim="signInfo.username" placeholder="请输入用户名" type="text"></x-input>
+          <x-input title="手机号" v-model.trim="signInfo.phone" placeholder="请输入手机号" mask="99999999999" :max="13" is-type="china-mobile" ></x-input>
+          <x-input title="密码" v-model.trim="signInfo.password" placeholder="请输入密码" type="password"></x-input>
+          <x-input title="确认密码" v-model.trim="signInfo.confirmPassword" placeholder="请再次输入密码" type="password"></x-input>
+          <selector title="用户类型" :options="regType" v-model="signInfo.role"></selector>
+        </group>
+        <div class="reg-btn">
+          <x-button type="primary" class="jrh-primary-btn" @click.native="regin">注册</x-button>
+        </div>
+      </div>
+    </popup>
   </div>
 </template>
 <script>
-import { XButton, Divider } from 'vux'
+import { XButton, Divider, Popup, XHeader, Group, XInput, Selector } from 'vux'
 import { mapMutations } from 'vuex'
 export default {
   components: {
     Divider,
-    XButton
+    XButton,
+    Popup,
+    XHeader,
+    Group,
+    XInput,
+    Selector
   },
   data () {
     return {
+      regType: [
+        {
+          key: 'personal',
+          value: '个人用户'
+        },
+        {
+          key: 'merchant',
+          value: '商家用户'
+        }
+      ],
+      signInfo: {
+        username: '',
+        phone: '',
+        password: '',
+        confirmPassword: '',
+        role: ''
+
+      },
+      showSignin: false,
       loginInfo: {
         username: '',
         password: ''
@@ -108,6 +147,51 @@ export default {
           })
         }
       })
+    },
+    regVerify () {
+      for (let i in this.signInfo) {
+        if (this.signInfo[i] === '') {
+          this.$vux.toast.show({
+            text: '请填写完整',
+            type: 'cancel'
+          })
+          return false
+        }
+      }
+      if (this.signInfo.password !== this.signInfo.confirmPassword) {
+        this.$vux.toast.show({
+          text: '密码不一致',
+          type: 'cancel'
+        })
+        this.signInfo.password = ''
+        this.signInfo.confirmPassword = ''
+        return false
+      }
+      return true
+    },
+    regin () {
+      if (this.regVerify()) {
+        this.$vux.loading.show({
+          text: '正在注册'
+        })
+        setTimeout(() => {
+          this.$vux.loading.hide()
+          this.$vux.toast.show({
+            text: '注册成功',
+            type: 'success'
+          })
+          this.showSignin = false
+        }, 2000)
+      }
+    }
+  },
+  watch: {
+    showSignin (newVal, oldVal) {
+      if (!newVal) {
+        for (let i in this.signInfo) {
+          this.signInfo[i] = ''
+        }
+      }
     }
   }
 }
@@ -187,6 +271,9 @@ export default {
           }
         }
       }
+    }
+    .reg-btn{
+      margin: 20px 10px;
     }
   }
 </style>
