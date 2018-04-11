@@ -174,14 +174,36 @@ export default {
         this.$vux.loading.show({
           text: '正在注册'
         })
-        setTimeout(() => {
-          this.$vux.loading.hide()
-          this.$vux.toast.show({
-            text: '注册成功',
-            type: 'success'
-          })
-          this.showSignin = false
-        }, 2000)
+        this.http({
+          url: '/api/juruihui/signin',
+          method: 'POST',
+          data: {
+            username: this.signInfo.username,
+            phone: this.signInfo.phone,
+            password: this.signInfo.password,
+            role: this.signInfo.role
+          },
+          error: function(err) {
+            console.log('注册失败', err);
+            this.$vux.loading.hide();
+            this.$vux.toast.show({
+              type: 'cancel',
+              text: '注册失败'
+            })
+          },
+          success: function(res) {
+            this.$vux.loading.hide();
+            if (res.err) {
+              this.$vux.toast.show({
+                type: 'cancel',
+                text: res.err
+              })
+              return;
+            }
+            console.log('注册成功', res);
+            this.showSignin = false;
+          }
+        })
       }
     }
   },
