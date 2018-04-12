@@ -7,7 +7,7 @@
           <div :class="{'tab-active' : userType === 'merchant'}" @click="switchUserType('merchant')">商家登陆</div>
         </div>
         <div class="input">
-          <input type="text" placeholder="请输入手机号码/邮箱" v-model="loginInfo.username">
+          <input type="text" placeholder="请输入手机号码" v-model="loginInfo.phone">
           <input type="password" placeholder="请输入密码" v-model="loginInfo.password">
           <x-button type="primary" class="jrh-primary-btn" @click.native="login">登陆</x-button>
           <div class="center-text">
@@ -84,7 +84,7 @@ export default {
       },
       showSignin: false,
       loginInfo: {
-        username: '',
+        phone: '',
         password: ''
       },
       userType: 'personal'
@@ -102,7 +102,7 @@ export default {
       this.userType = type
     },
     login () {
-      let _username = this.loginInfo.username.trim()
+      let _username = this.loginInfo.phone.trim()
       let _password = this.loginInfo.password
       if (_username === '' || _password === '') {
         this.$vux.toast.show({
@@ -119,8 +119,9 @@ export default {
         url: '/api/juruihui/login',
         method: 'POST',
         data: {
-          username: this.loginInfo.username,
-          password: this.loginInfo.password
+          phone: this.loginInfo.phone,
+          password: this.loginInfo.password,
+          city: window.remote_ip_info.city
         },
         error: err => {
           console.log(err)
@@ -183,25 +184,25 @@ export default {
             password: this.signInfo.password,
             role: this.signInfo.role
           },
-          error: function(err) {
-            console.log('注册失败', err);
-            this.$vux.loading.hide();
+          error: function (err) {
+            console.log('注册失败', err)
+            this.$vux.loading.hide()
             this.$vux.toast.show({
               type: 'cancel',
               text: '注册失败'
             })
           },
-          success: function(res) {
-            this.$vux.loading.hide();
+          success: function (res) {
+            this.$vux.loading.hide()
             if (res.err) {
               this.$vux.toast.show({
                 type: 'cancel',
                 text: res.err
               })
-              return;
+              return
             }
-            console.log('注册成功', res);
-            this.showSignin = false;
+            console.log('注册成功', res)
+            this.showSignin = false
           }
         })
       }
